@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Manghuhula</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+      <div id="container">
+        <h1>Yes or No</h1>
+        Enter something: <input type="text" id="inputer" placeholder="eg. Will I be rich?" >
+        <button id="askButton">Ask</button>
+        <div id="question"></div>
+        <div id="response"></div>
+      </div>
+
+      <script>
+        let inputer = document.getElementById('inputer');
+        let responseContainer = document.getElementById('response');
+        let questionContainer = document.getElementById('question'); // Corrected this line
+        
+        let questioned = [];
+
+        let askButton = document.getElementById('askButton');
+
+        inputer.addEventListener('keydown', function(event) {
+          if (event.key === 'Enter') {
+            aderist()
+          }
+        });
+
+        askButton.addEventListener('click', aderist);
+
+        function goArray(array) {
+          array.length = 0;
+        }
+
+        function aderist () {
+          let userQuestion = inputer.value;
+         if (userQuestion !== '') {
+            let answer = getAnswer();
+          responseContainer.innerHTML = `<p>AI: ${answer}</p>`;
+          inputer.value = ''; // Clear the input field
+          questioned.push(userQuestion);
+
+
+          questy()
+          }
+          if (questioned !== 0) {
+            goArray(questioned);
+          }
+        };
+
+        function questy () {
+         // let userQuestion = inputer.value;
+          questionContainer.innerHTML = `<p>You asked: ${questioned.join('')}</p>`
+        }
+
+        function getAnswer() {
+          let randomNumber = Math.floor(Math.random() * 8); // Random number between 0 and 7
+          switch (randomNumber) {
+            case 0: return 'Maybe';
+            case 1: return 'Of course nigga';
+            case 2: return 'Hindi po';
+            case 3: return 'Malay ko';
+            case 4: return 'Di ko kayang sagutin for now';
+            case 5: return 'Are you gagoing me?';
+            case 6: return 'Sure na sure';
+            case 7: return 'shurup niba';
+            default: return 'Try again';
+          }
+        }
+      </script>
+    </body>
+</html>

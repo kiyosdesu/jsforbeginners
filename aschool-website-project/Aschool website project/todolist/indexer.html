@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do-List</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="todolist.css">
+</head>
+<body>
+    <div id="lahat">
+        <h2>To-Do-List</h2>
+        <input type="text" id="inputer" placeholder="Add to your List:">
+        <button id="button">Add To List</button>
+        <div id="container"></div>
+    </div>
+
+
+    <script>
+        let inputer = document.getElementById('inputer');
+        let button = document.getElementById('button');
+        let inputerContainer = document.getElementById('container');
+        let container = [];
+
+        button.addEventListener('click', arrayAdder);
+        inputer.addEventListener('keydown', enterKey);
+
+        function arrayAdder() {
+            let inputVal = inputer.value;
+            let uniqueId = Date.now(); // Generate a unique identifier
+            if (inputVal !== '') {
+                container.push(`<p id="${uniqueId}" ondblclick="remover(${uniqueId})">${inputer.value}</p>`);
+            inputer.value = '';
+            updater();
+            }
+
+        }
+
+        function updater() {
+            inputerContainer.innerHTML = container.join('');
+        }
+
+        function enterKey(event) {
+            if (event.key === 'Enter') {
+                arrayAdder();
+            }
+        }
+
+        function remover(uniqueId) {
+            let index = container.findIndex(p => p.includes(`id="${uniqueId}"`));
+            if (index !== -1) {
+                container.splice(index, 1);
+                updater();
+            }
+        }
+    </script>
+</body>
+</html>

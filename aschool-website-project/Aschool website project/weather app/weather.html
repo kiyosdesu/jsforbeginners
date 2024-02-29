@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+    <div class="container">
+    <div class="location">
+        <h1>Location</h1>
+    </div>
+    <div class="temperature">
+        <div class="degree-container">
+        <h1 class="degree">Magic niber</h1>
+        <span></span>
+    </div>
+        <div class="temp-description"></div>
+    </div>
+    </div>
+<script>
+
+    window.addEventListener('load', findPosition);
+
+    let temperatureDesc = document.querySelector('.temp-description')
+    let temperatureDeg = document.querySelector('.degree');
+    let locationer = document.querySelector('.location');
+    let container = document.querySelector('.container');
+
+
+    function findPosition () {
+        
+        let long;
+        let lati;
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(position => {
+                long = position.coords.longitude;
+                lati = position.coords.latitude;
+
+                const api = `https://api.weatherapi.com/v1/current.json?key=1b8f4b4e54ef44ea99443529243001&q=${lati},${long}`;
+                fetch(api)
+                .then(weDo => {
+                    return weDo.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    const temperature = data.current.temp_c; 
+                    const summary = data.current.condition.text;
+                    const location = data.location.name;
+
+                    // Update DOM elements with the fetched data
+                    temperatureDeg.textContent = `${temperature}`
+                    temperatureDesc.textContent = summary;
+                    locationer.textContent = location;
+
+                    backgroundChanger()
+                })
+            });
+        }
+    };
+
+    function backgroundChanger () {
+        if (temperatureDesc.textContent === 'Partly cloudy') {
+            container.style.backgroundImage = "url('weather image/cloud.png')"
+        } else if (temperatureDesc.textContent === 'Sunny') {
+            container.style.backgroundImage = "url()"
+        } else if (temperatureDesc.textContent === 'Clear') {
+            container.style.backgroundImage = "url('weather image/clear.png')"
+        }
+    }
+
+    function updateTime () {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString();
+
+        if (currentHour >= 18 || currentHour < 6) {
+            // Night time background
+            container.style.backgroundImage = "url('weather image/night-cloud.png')";
+        }
+    }
+
+    setInterval(updateTime, 1000);
+
+    updateTime()
+
+</script>
+</body>
+</html>

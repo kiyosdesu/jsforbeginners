@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>to do</title>
+    </head>
+    <body>
+        <h1>add here</h1>
+        <input type="text" id="inputer"><button id="button">add task</button>
+        <div id="parent">
+
+        </div>
+        <script>
+            let container = []
+            let inputer = document.getElementById('inputer');
+            let button = document.getElementById('button');
+
+            button.addEventListener('click', adder);
+            inputer.addEventListener('keydown', enterist)
+
+            function adder() {
+                container.push(`<p onclick="liner(${container.length})" ondblclick="remover(${container.length})">${inputer.value}</p>`);
+                inputer.value = '';
+
+                pusherist()
+            }
+
+            function pusherist() {
+                document.getElementById('parent').innerHTML = container.join('')
+            }
+
+            function remover(index) {
+                container.splice(index, 1);
+                
+                pusherist()
+            }
+
+            function enterist(event) {
+                if (event.key === 'Enter') {
+                    adder()
+                }
+            }
+
+
+            
+        </script>
+    </body>
+</html>

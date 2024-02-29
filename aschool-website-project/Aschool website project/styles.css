@@ -1,0 +1,158 @@
+* {
+    margin:0;
+    padding:0;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #1c2e38;
+
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 150px;
+    background-color: #8ea0a3;
+    max-width: 800px;
+
+}
+
+#logo {
+    cursor: pointer;
+    width: 15%;
+    height:15%;
+}
+
+#Navie li {
+    display: inline-block;
+    padding: 0px 20px;
+    color: white;
+}
+
+#Navie li a {
+    transition: all 0.3s;
+    color:white;
+}
+
+#Navie li a:hover {
+    color:rgb(23, 54, 177);
+    border-bottom: 1px solid ;
+}
+
+#Navie {
+    color: white;
+}
+
+
+
+/*project containers*/
+.project-container {
+    display: flex;
+    max-width: 1100px;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(43, 31, 112, 0.399);
+}
+
+.project-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center children horizontally */
+    flex-direction: column;
+    width: 100%; /* Full width of the container */
+    color: white;
+    margin-bottom: 60px;
+}
+
+.project-1-image {
+    width: 100%; /* Ensure the container spans the full width */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+
+
+}
+
+.project-1-image img {
+    max-width: 60%; /* Adjust size as needed */
+    border-radius: 10px;
+}
+
+.project-1 a {
+    color: white;
+}
+
+.project-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center children horizontally */
+    flex-direction: column;
+    width: 100%; /* Full width of the container */
+    color: white;
+}
+
+.project-2-image {
+    width: 100%; /* Ensure the container spans the full width */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+
+}
+
+.project-2-image img {
+    max-width: 60%; /* Adjust size as needed */
+    border-radius: 10px;
+    margin-bottom: 60px;
+}
+
+.project-3 {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center children horizontally */
+    flex-direction: column;
+    width: 100%; /* Full width of the container */
+    color: white;
+}
+
+.project-3-image {
+    width: 100%; /* Ensure the container spans the full width */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+
+}
+
+.project-3-image img {
+    max-width: 60%; /* Adjust size as needed */
+    border-radius: 10px;
+    margin-bottom: 60px;
+}
+
+.project-4 {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center children horizontally */
+    flex-direction: column;
+    width: 100%; /* Full width of the container */
+    color: white;
+}
+
+.project-4-image {
+    width: 100%; /* Ensure the container spans the full width */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+
+}
+
+.project-4-image img {
+    max-width: 60%; /* Adjust size as needed */
+    border-radius: 10px;
+    margin-bottom: 60px;
+}

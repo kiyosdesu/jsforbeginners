@@ -1,0 +1,29 @@
+body, html{
+    height: 100%; /* Full height of the viewport */
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center; /* Centers text for all children */
+    background: rgb(36, 31, 33);
+}
+
+
+#lahat {
+    background: grey;
+    text-align: center;
+    border-radius: 13px;
+    margin-bottom: 200px;
+    width: 350px;
+    
+}
+
+button {
+    border-radius: 13px;
+}
+
+#container {
+    min-height: 10vh;
+    overflow-y: auto;
+    max-height: 60vh;
+}
